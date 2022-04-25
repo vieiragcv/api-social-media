@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const ThoughtsSchema = new Schema(
@@ -8,9 +8,9 @@ const ThoughtsSchema = new Schema(
       default: () => Types.ObjectId()
     },
     textArea: {
-      type: String,
-      required: true,
-      trim: true
+      type: String
+      //required: true,
+      //trim: true
     },
     createAt: {
       type: Date,
@@ -18,11 +18,14 @@ const ThoughtsSchema = new Schema(
       get: createdAtVal => dateFormat(createdAtVal)
     },
     userName: {
-      type: String,
-      required: true
+      type: String
+      //required: true
     },
     reactions: {
-      type: Array,
-      required: true
+      type: Array
+      //required: true
     }
   });
+  
+const Thoughts = model('Thoughts', ThoughtsSchema);
+module.exports = Thoughts;

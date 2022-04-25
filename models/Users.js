@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 /* const FriendsSchema = new Schema(
@@ -16,26 +16,26 @@ const UserSchema = new Schema(
       default: () => Types.ObjectId()
     },
     userName: {
-      type: String,
-      required: true,
-      trim: true
+      type: String
+      //required: true,
+      //trim: true
       // validation
       // unique
     },
     email: {
-      type: String,
-      required: true
+      type: String
+      //required: true
       // validation
       // unique
     },
     thoughts: {   //Array of _id values referencing the User model (self-reference)
       type: Array,
-      required: true,
+      //required: true,
       default: []
     },
     fiends: {
       type: Array,
-      default: [],
+      default: []
     },
     createdAt: {
       type: Date,
@@ -55,8 +55,6 @@ const UserSchema = new Schema(
 UserSchema.virtual('friendsCount').get(function() {
   return this.friends.reduce((total, friends) => total + friends.length + 1, 0);
 });
-
-
 
 const User = model('User', UserSchema);
 module.exports = User;

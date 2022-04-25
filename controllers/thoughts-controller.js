@@ -1,10 +1,15 @@
-const { User, Thoughts } = require('../models');
+const { Thoughts } = require('../models');
 
 const thoughtsController = {
   getAllThoughts(req, res) {
-
-  },
-  getThoughtsbyId({ params }, res) {
+    Thoughts.find({})
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => {
+      console.log(err);
+      res.sendStatus(400);
+    });
+  }
+  /* getThoughtsbyId({ params }, res) {
 
   },
   createThought( {body}, res) {
@@ -15,7 +20,7 @@ const thoughtsController = {
   },
   deleteThought({ params }, res) {
 
-  }
+  } */
 };
 
 module.exports = thoughtsController;

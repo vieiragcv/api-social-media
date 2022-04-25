@@ -1,4 +1,4 @@
-const { User, Thoughts } = require('../models');
+const { User } = require('../models');
 
 const userController = {
   getAllUsers(req, res) {
@@ -8,24 +8,24 @@ const userController = {
         console.log(err);
         res.sendStatus(400);
       });
-  },
-  getUserById({ params }, res) {
+  }
+  /* getUserById({ params }, res) {
     User.findOne({ _id: params.id })
       .then(dbUserData => res.json(dbUserData))
       .catch(err => {
         console.log(err);
         res.sendStatus(400);
       });
-  },
-  createUser( {body}, res) {
-
+  }, */
+  /* createUser( {body}, res) {
+    
   },
   updateUser({ params, body}, res) {
 
   },
   deleteUser({ params }, res) {
 
-  }
+  } */
 };
 
 module.exports = userController;
