@@ -8,28 +8,29 @@ GIVEN a social network API
 
 |--- WHEN app is invoked                      ---| 
 |--- THEN server starts and models sync to DB ---|
-|---                (COMPLETE)                ---|
+|--- status:        (COMPLETE)                ---|
 
 
 
-|---              WHEN I open API routes                  ---|
-|---    THEN Insomnia displays data in formatted JSON     ---| -> (PENDING)
+|--- WHEN I open API routes                  ---|
+|--- THEN displays data in formatted JSON    ---| 
+|--- status:        (PENDING)                ---|
 
   USERS     
 
-    GET            /api/users & /api/users/:id           (COMPLETE)
-    PUT            /api/users/:id                        (PENDING) ->  update Friend's list
-    POST           /api/users                            (COMPLETE)
-    DELETE         /api/users/:id                        (COMPLETE)
+    GET       /api/users & /api/users/:id           (COMPLETE)
+    PUT       /api/users/:id                        (PENDING - friend's list)
+    POST      /api/users                            (COMPLETE)
+    DELETE    /api/users/:id                        (COMPLETE)
 
   THOUGHTS  
 
-    GET            /api/thoughts & /api/thoughts/:id     (COMPLETE)
-    PUT            /api/users/:id                        (PENDING)
-    POST           /api/users/                           (PENDING)
-    DELETE         /api/users/:id                        (PENDING)
+    GET       /api/thoughts & /api/thoughts/:id     (COMPLETE)
+    PUT       /api/users/:id                        (PENDING)
+    POST      /api/users/                           (PENDING)
+    DELETE    /api/users/:id                        (PENDING)
 
   REACTIONS (of thoughts)
 
-    POST           /api/reactions                        (PENDING)
-    DELETE         /api/reactions/:id                    (PENDING)
+    POST      /api/reactions                        (PENDING)
+    DELETE    /api/reactions/:id                    (PENDING)
