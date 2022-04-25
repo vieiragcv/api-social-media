@@ -1,6 +1,15 @@
-const { Schema, model, Types } = require('mongoose');
+const { Schema, model } = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
 
-const UsersSchema = new Schema(
+/* const FriendsSchema = new Schema(
+  {
+    friendId: {
+      type: Schema.Types.ObjectId,
+    }
+  }
+); */
+
+const UserSchema = new Schema(
   {
     userId: {
       type: Schema.Types.ObjectId,
@@ -27,18 +36,27 @@ const UsersSchema = new Schema(
     fiends: {
       type: Array,
       default: [],
-    }
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: createdAtVal => dateFormat(createdAtVal)
+    },
+  },
+  {
+    toJSON: {
+      virtuals: true,
+      getters: true
+    },
+    id: false
   }
 );
 
-UsersSchema.virtual('friendsCount').get(function() {
+UserSchema.virtual('friendsCount').get(function() {
   return this.friends.reduce((total, friends) => total + friends.length + 1, 0);
 });
 
-const FriendsSchema = new Schema(
-  {
-    friendId: {
-      type: Schema.Types.ObjectId,
-    }
-  }
-);
+
+
+const User = model('User', UserSchema);
+module.exports = User;
