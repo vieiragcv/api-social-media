@@ -11,10 +11,10 @@ const dateFormat = require('../utils/dateFormat');
 
 const UserSchema = new Schema(
   {
-    userId: {
+/*     userId: {
       type: Schema.Types.ObjectId,
       default: () => Types.ObjectId()
-    },
+    }, */
     userName: {
       type: String
       //required: true,
@@ -28,14 +28,14 @@ const UserSchema = new Schema(
       // validation
       // unique
     },
-    thoughts: {   //Array of _id values referencing the User model (self-reference)
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Thoughts'
+      }
+    ],
+    friends: {
       type: Array,
-      //required: true,
-      default: []
-    },
-    fiends: {
-      type: Array,
-      default: []
     },
     createdAt: {
       type: Date,

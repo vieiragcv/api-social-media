@@ -6,18 +6,32 @@ SO THAT my website can handle large amounts of unstructured data
 
 GIVEN a social network API
 
-WHEN I enter the command to invoke the app
-THEN my server is started and the Mongoose models are synced to the MongoDB DB
+|---         WHEN I enter the command to invoke the app         ---| 
+|--- THEN my server is started and the Mongoose models are synced to the MongoDB DB  ---| 
 
-WHEN I open API GET routes in Insomnia for USERS and THOUGHTS
-THEN the data for each of these routes is displayed in a formatted JSON
+|---         WHEN I open API routes:         ---|                        
 
-WHEN I test api POST, PUT, and DELETE routes in Insomnia
-THEN I am able to successfully 
-  create, 
-  update, and 
-  delete USERS and THOUGHTS in my DB
+  USERS     
 
-WHEN I test API POST and DELETE routes in Insomnia
-THEN I am able to successfully create and delete reactions to 
-thoughts and add and remove friends to a user’s friend list
+    GET            /api/users & /api/users/:id                      (COMPLETE)
+    PUT            /api/users/:id                                   (COMPLETE)
+    POST           /api/users                                       (COMPLETE)
+    DELETE         /api/users/:id                                   (COMPLETE)
+
+  THOUGHTS  
+
+    GET            /api/thoughts & /api/thoughts/:id                (COMPLETE)
+    PUT            /api/users/:id                                   (PENDING)
+    POST           /api/users/                                      (PENDING)
+    DELETE         /api/users/:id                                   (PENDING)
+
+  REACTIONS (of thoughts)
+
+    POST           /api/reactions                                   (PENDING)
+    DELETE         /api/reactions/:id                               (PENDING)
+
+  FRIENDS  (add and remove friends to a user’s friend list)
+
+    PUT            /api/users/:id                                   (PENDING)
+
+|--- THEN Insomnia displays data in formatted JSON ---|  
