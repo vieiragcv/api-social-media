@@ -13,6 +13,17 @@ const userController = {
     User.create(body)
     .then(dbUserData => res.json(dbUserData))
     .catch(err => res.json(err));
+  },
+  updateUser ( {params, body}, res) {
+    User.findOneAndUpdate({ _id: params.id }, body, { new: true, runValudators: true })
+      .then(dbUserData => {
+        if (!dbUserData) {
+          res.status(404).json({ message: 'No user found by this id' });
+          return;
+        }
+        res.json(dbUserData);
+      })
+      .catch(err => res.json(err));
   }
 };
 
