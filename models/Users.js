@@ -11,22 +11,18 @@ const dateFormat = require('../utils/dateFormat');
 
 const UserSchema = new Schema(
   {
-/*     userId: {
-      type: Schema.Types.ObjectId,
-      default: () => Types.ObjectId()
-    }, */
     userName: {
-      type: String
-      //required: true,
-      //trim: true
-      // validation
-      // unique
+      type: String,
+      required: true,
+      trim: true
+      //validation
+      //unique
     },
     email: {
-      type: String
-      //required: true
-      // validation
-      // unique
+      type: String,
+      required: true
+      //validation
+      //unique
     },
     thoughts: [
       {
@@ -52,9 +48,9 @@ const UserSchema = new Schema(
   }
 );
 
-/* UserSchema.virtual('friendsCount').get(function() {
+UserSchema.virtual('friendsCount').get(function() {
   return this.friends.reduce((total, friends) => total + friends.length + 1, 0);
-}); */
+});
 
 const User = model('User', UserSchema);
 module.exports = User;
