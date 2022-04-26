@@ -12,6 +12,7 @@ const {
 /*------------------------- 
  -     /api/thoughts/
 -------------------------*/
+
 router
   .route('/')
   .get(getAllThoughts)
@@ -20,11 +21,19 @@ router
 /*------------------------------
  - /api/thoughts/<thoughtsId>
 ------------------------------*/
+
 router
   .route('/:id')
   .get(getThoughtsbyId)
   .put(addReaction)
   .delete(deleteReaction)
   .delete(deleteThought);
+
+/*-----------------------------------------
+ - /api/thoughts/<thoughtId>/<reactionId>
+-----------------------------------------*/
+router
+.route('/:id/:thoughtsId/:reactionId').delete(deleteReaction);
+
 
 module.exports = router;
