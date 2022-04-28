@@ -31,5 +31,109 @@
 	"email": "badger@mclaren.com"
 }
 
+CURRENT OUTPUT:
 
+[
+	{
+		"_id": "62686eba1967626c328ef229",
+		"userName": "Lewis Hamilton",
+		"email": "hamilton@gmail.com",
+		"thoughts": [],
+		"createdAt": "Apr 26th, 2022 at 18:14 pm",
+		"friends": [],
+		"__v": 0,
+		"friendsCount": 0
+	},
+	{
+		"_id": "62686ebf1967626c328ef22b",
+		"userName": "George Russel",
+		"email": "russel@mercedes.com",
+		"thoughts": [],
+		"createdAt": "Apr 26th, 2022 at 18:14 pm",
+		"friends": [],
+		"__v": 0,
+		"friendsCount": 0
+	},
+	{
+		"_id": "62686ec31967626c328ef22d",
+		"userName": "Charles Lecrec",
+		"email": "lecrec@ferrari.com",
+		"thoughts": [],
+		"createdAt": "Apr 26th, 2022 at 18:14 pm",
+		"friends": [],
+		"__v": 0,
+		"friendsCount": 0
+	},
+	{
+		"_id": "62686ec91967626c328ef22f",
+		"userName": "Carlos Sainz",
+		"email": "lecrec@ferrari.com",
+		"thoughts": [],
+		"createdAt": "Apr 26th, 2022 at 18:14 pm",
+		"friends": [],
+		"__v": 0,
+		"friendsCount": 0
+	},
+	{
+		"_id": "62686ecd1967626c328ef231",
+		"userName": "Max Verstappen",
+		"email": "verstappen@redbullracing.com",
+		"thoughts": [],
+		"createdAt": "Apr 26th, 2022 at 18:14 pm",
+		"friends": [],
+		"__v": 0,
+		"friendsCount": 0
+	},
+	{
+		"_id": "62686ed21967626c328ef233",
+		"userName": "Sergio Perez",
+		"email": "checo@redbullracing.com",
+		"thoughts": [],
+		"createdAt": "Apr 26th, 2022 at 18:14 pm",
+		"friends": [],
+		"__v": 0,
+		"friendsCount": 0
+	},
+	{
+		"_id": "62686ed71967626c328ef235",
+		"userName": "Lando Norris",
+		"email": "lando@mclaren.com",
+		"thoughts": [],
+		"createdAt": "Apr 26th, 2022 at 18:14 pm",
+		"friends": [],
+		"__v": 0,
+		"friendsCount": 0
+	},
+	{
+		"_id": "62686edc1967626c328ef237",
+		"userName": "Daniel Ricciardo",
+		"email": "badger@mclaren.com",
+		"thoughts": [],
+		"createdAt": "Apr 26th, 2022 at 18:14 pm",
+		"friends": [],
+		"__v": 0,
+		"friendsCount": 0
+	}
+]
+
+
+THOUGHTS INPUT
+
+{
+	"textArea": "1st thought",
+	"userName": "Tuco Benedicto"
+}
+
+THOUGHTS OUTPUT
+
+[
+	{
+		"_id": "62686f9aef4ed296c88de752",
+		"textArea": "No chance for Hamilton this season",
+		"userName": "Max Verstappen",
+		"createAt": "2022-04-26T22:18:02.968Z",
+		"reactions": [],
+		"__v": 0
+	}
+]
 

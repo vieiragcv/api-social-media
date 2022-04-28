@@ -1,17 +1,6 @@
 const { Schema, model, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
-const FriendsListSchema = new Schema(
-  {
-    firnedsListId: {
-      type: Schema.Types.ObjectId
-    },
-    listObj: {
-      type: Array
-    }
-  }
-);
-
 const UserSchema = new Schema(
   {
     userName: {
@@ -38,7 +27,12 @@ const UserSchema = new Schema(
       default: Date.now,
       get: createdAtVal => dateFormat(createdAtVal)
     },
-    friends: [FriendsListSchema]
+    friends: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Users'
+      }
+    ]
   },
   {
     toJSON: {

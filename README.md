@@ -11,24 +11,28 @@ GIVEN a social network API
 |--- status:        (COMPLETE)                ---|
 
 
-
 |--- WHEN I open API routes                  ---|
-|--- THEN displays data in formatted JSON    ---| 
+|--- THEN data in JSON displays              ---| 
 |--- status:        (PENDING)                ---|
 
   USERS     
 
-    GET       /api/users & /api/users/:id           (COMPLETE)
-    PUT       /api/users/:id                        (PENDING - friend's list)
-    POST      /api/users                            (COMPLETE)
-    DELETE    /api/users/:id                        (COMPLETE)
+    GET       /api/users & /api/users/:id   (COMPLETE)
+    PUT       /api/users/:id                (COMPLETE)
+    POST      /api/users                    (COMPLETE)
+    DELETE    /api/users/:id                (COMPLETE)
+
+  FRIENDS LIST
+
+    GET       /api/users/:id                (PENDING)
+    PUT       /api/users/:id                (PENDING)
 
   THOUGHTS  
 
-    GET       /api/thoughts & /api/thoughts/:id     (COMPLETE)
-    PUT       /api/users/:id                        (PENDING)
-    POST      /api/users/                           (PENDING)
-    DELETE    /api/users/:id                        (PENDING)
+    GET       /api/thoughts & /api/thoughts/:id       (COMPLETE)
+    PUT       /api/thoughts/:id                       (COMPLETE)
+    POST      /api/thoughts/<Pass user ID parameter>  (COMPLETE)
+    DELETE    /api/thoughts/:id                       (COMPLETE)
 
   REACTIONS (of thoughts)
 
