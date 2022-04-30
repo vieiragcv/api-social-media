@@ -3,19 +3,25 @@ const dateFormat = require('../utils/dateFormat');
 
 const ReactionsSchema = new Schema(
   {
-    reactionId: {
+/*     reactionId: {
       type: Schema.Types.ObjectId,
       default: () => new Types.ObjectId()
-    },
+    }, */
     reactionBody: {
       type: String,
-      required:true
+      required:true,
+      maxlength: 280,
+      trim: true
     },
     writtenBy: {
       type: String,
       required: true,
       trim: true
     },
+   /*  userId: {
+      type: String,
+      required: true
+    }, */
     createdAt: {
       type: Date,
       default: Date.now,
@@ -25,17 +31,18 @@ const ReactionsSchema = new Schema(
   {
     toJSON: {
       getters: true
-    }
-  }
+    },
+    id: false
+  },
 );
 
 const ThoughtsSchema = new Schema(
   {
     textArea: {
-      type: String
-      //required: true,
-      //trim: true
-      //validation -> 1 to 280 characters
+      type: String,
+      required: true,
+      maxlength: 280,
+      trim: true
     },
     createAt: {
       type: Date,
@@ -43,15 +50,22 @@ const ThoughtsSchema = new Schema(
       get: createdAtVal => dateFormat(createdAtVal)
     },
     userName: {
-      type: String
-      //required: true
+      type: String,
+      required: true,
+      trim: true
     },
     reactions: [ReactionsSchema]
+  },
+  {
+    toJSON: {
+      virtuals: true,
+      getters: true
+    },
+    id: false
   }
 );
-
-ThoughtsSchema.virtual('thoughtsCount').get(function() {
-  return this.reactions.reduce((total, friends) => total + friends.length + 1, 0);
+ThoughtsSchema.virtual('reactionsCount').get(function() {
+  return this.reactions.length;
 });
   
 const Thoughts = model('Thoughts', ThoughtsSchema);

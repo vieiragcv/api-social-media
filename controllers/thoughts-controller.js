@@ -20,15 +20,27 @@ const thoughtsController = {
       });
   },
 
+  updateThought({ params, body}, res) {
+    Thoughts.findOneAndUpdate({ _id: params.id })
+      .then()
+      .catch();
+  },
+
   addThought( { body }, res) {
     Thoughts.create(body)
       .then(dbThoughtsData => res.json(dbThoughtsData))
       .catch(err => res.json(err));
   },
 
+  deleteThought({ params }, res) {
+    Thoughts.findOneAndDelete({ _id: params.id})
+      .then(dbThoughtsData => res.json(dbThoughtsData))
+      .catch(err => res.json(err));
+  },
+
   addReaction({ params, body}, res) {
     Thoughts.findOneAndUpdate(
-      { _id: params.thoughtsId },
+      { _id: params.thoughtId },
       { $push: { reactions: body} },
       { new: true/* , runValidators: true */ }
     )
@@ -44,19 +56,14 @@ const thoughtsController = {
 
   deleteReaction({ params }, res) {
     Thoughts.findOneAndUpdate(
-      { _id: params.reactionId },
-      { $pull: { reactions: { reactionId: params.reactionId } } },
+      { _id: params.thoughtId },
+      { $pull: { reactions: { _id: params.reactionId } } },
       { new: true }
     )
     .then(dbThoughtsData => res.json(dbThoughtsData))
     .catch(err => res.json(err));
-  },
-
-  deleteThought({ params }, res) {
-    Thoughts.findOneAndDelete({ _id: params.id})
-      .then(dbThoughtsData => res.json(dbThoughtsData))
-      .catch(err => res.json(err));
   }
+  
 };
 
 module.exports = thoughtsController;
