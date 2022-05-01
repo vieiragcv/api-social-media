@@ -3,10 +3,6 @@ const dateFormat = require('../utils/dateFormat');
 
 const ReactionsSchema = new Schema(
   {
-/*     reactionId: {
-      type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId()
-    }, */
     reactionBody: {
       type: String,
       required:true,
@@ -18,10 +14,6 @@ const ReactionsSchema = new Schema(
       required: true,
       trim: true
     },
-   /*  userId: {
-      type: String,
-      required: true
-    }, */
     createdAt: {
       type: Date,
       default: Date.now,
@@ -53,6 +45,7 @@ const ThoughtsSchema = new Schema(
       type: String,
       required: true,
       trim: true
+      // need to validate a matching userName exists in the DB !
     },
     reactions: [ReactionsSchema]
   },
