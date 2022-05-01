@@ -1,10 +1,7 @@
 # api-social-media
 
 AS A social media startup
-I WANT an API: social network (NoSQL)
-SO THAT I can handle unstructured data
-
-GIVEN a social network API
+I WANT an API: social network (NoSQL) SO THAT I can handle unstructured data
 
 |--- WHEN app is invoked                      ---| 
 |--- THEN server starts and models sync to DB ---|
@@ -24,8 +21,8 @@ GIVEN a social network API
 
   FRIENDS LIST
 
-    GET       /api/users/:id                (PENDING)
-    PUT       /api/users/:id                (PENDING)
+    GET       /api/users/:id               (PENDING)
+    PUT       /api/users/:id               (PENDING)
 
   THOUGHTS  
 
@@ -36,5 +33,5 @@ GIVEN a social network API
 
   REACTIONS (of thoughts)
 
-    POST      /api/reactions                        (PENDING)
-    DELETE    /api/reactions/:id                    (PENDING)
+    POST      /api/reactions                        (COMPLETE)
+    DELETE    /api/reactions/:id                    (COMPLETE)

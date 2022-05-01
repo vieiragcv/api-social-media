@@ -27,7 +27,7 @@ router
 router
   .route('/:id')
   .get(getThoughtsbyId)
-  /* .put(updateThought) */
+  .put(updateThought) 
   .delete(deleteThought);
 
 router

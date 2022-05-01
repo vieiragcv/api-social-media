@@ -20,15 +20,26 @@ const thoughtsController = {
       });
   },
 
-  updateThought({ params, body}, res) {
-    Thoughts.findOneAndUpdate({ _id: params.id })
-      .then()
-      .catch();
-  },
-
   addThought( { body }, res) {
     Thoughts.create(body)
       .then(dbThoughtsData => res.json(dbThoughtsData))
+      .then()
+      .catch(err => res.json(err));
+  },
+
+  updateThought({ params, body}, res) {
+    Thoughts.findOneAndUpdate(
+      { _id: params.id },
+      body,
+      {new: true, runValidators: true }
+    )
+      .then(dbThoughtsData => {
+        if (!dbThoughtsData) {
+          res.status(400).json( { message: 'No thought found by this id' } );
+          return;
+        }
+        res.json(dbThoughtsData);
+      })
       .catch(err => res.json(err));
   },
 
