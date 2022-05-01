@@ -12,9 +12,9 @@ const UserSchema = new Schema(
     },
     email: {
       type: String,
-      required: true
-      //validation
-      //unique
+      required: true,
+      trim: true,
+      match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,5})+$/
     },
     thoughts: [
       {

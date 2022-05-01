@@ -45,7 +45,6 @@ const ThoughtsSchema = new Schema(
       type: String,
       required: true,
       trim: true
-      // need to validate a matching userName exists in the DB !
     },
     reactions: [ReactionsSchema]
   },
