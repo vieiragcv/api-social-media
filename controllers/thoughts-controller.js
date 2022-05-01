@@ -2,6 +2,10 @@ const { Thoughts } = require('../models');
 
 const thoughtsController = {
 
+/*------------------------- 
+ -     THOUGHTS
+-------------------------*/
+
   getAllThoughts(req, res) {
     Thoughts.find({})
     .then(dbUserData => res.json(dbUserData))
@@ -48,6 +52,10 @@ const thoughtsController = {
       .then(dbThoughtsData => res.json(dbThoughtsData))
       .catch(err => res.json(err));
   },
+
+/*------------------------- 
+ -     REACTIONS
+-------------------------*/
 
   addReaction({ params, body}, res) {
     Thoughts.findOneAndUpdate(
