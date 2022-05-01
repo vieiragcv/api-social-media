@@ -5,33 +5,38 @@ I WANT an API: social network (NoSQL) SO THAT I can handle unstructured data
 
 |--- WHEN app is invoked                      ---| 
 |--- THEN server starts and models sync to DB ---|
-|--- status:        (COMPLETE)                ---|
 
 
 |--- WHEN I open API routes                  ---|
 |--- THEN data in JSON displays              ---| 
-|--- status:        (PENDING)                ---|
+
 
   USERS     
 
-    GET       /api/users & /api/users/:id   (COMPLETE)
-    PUT       /api/users/:id                (COMPLETE)
-    POST      /api/users                    (COMPLETE)
-    DELETE    /api/users/:id                (COMPLETE)
+    GET       /api/users                    
+    POST      /api/users                  
+
+    GET       /api/users/:id                
+    PUT       /api/users/:id               
+    DELETE    /api/users/:id                
 
   FRIENDS LIST
 
-    GET       /api/users/:id               (PENDING)
-    PUT       /api/users/:id               (PENDING)
+    POST      /api/users/:id/friends            
+
+    DELETE    /api/users/:id/friends/:friendId  
 
   THOUGHTS  
 
-    GET       /api/thoughts & /api/thoughts/:id       (COMPLETE)
-    PUT       /api/thoughts/:id                       (COMPLETE)
-    POST      /api/thoughts/<Pass user ID parameter>  (COMPLETE)
-    DELETE    /api/thoughts/:id                       (COMPLETE)
+    GET       /api/thoughts   
+    POST      /api/thoughts/  
+
+    GET       /api/thoughts/:id  
+    PUT       /api/thoughts/:id              
+    DELETE    /api/thoughts/:id
 
   REACTIONS (of thoughts)
 
-    POST      /api/reactions                        (COMPLETE)
-    DELETE    /api/reactions/:id                    (COMPLETE)
+    POST      /api/:thoughtId/reactions
+
+    DELETE    /api/:thoughtId/reactions/:reactionId  
