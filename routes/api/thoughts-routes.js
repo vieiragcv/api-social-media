@@ -19,7 +19,6 @@ router
   .get(getAllThoughts)
   .post(addThought);
   
-  
 /*------------------------------
  - /api/thoughts/<thoughtsId>
 ------------------------------*/
